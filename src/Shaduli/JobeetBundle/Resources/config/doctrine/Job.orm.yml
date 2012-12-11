@@ -1,6 +1,6 @@
 Shaduli\JobeetBundle\Entity\Job:
     type: entity
-    table: null
+    table: job
     repositoryClass: Shaduli\JobeetBundle\Entity\JobRepository
     fields:
         id:
@@ -44,4 +44,24 @@ Shaduli\JobeetBundle\Entity\Job:
             length: 255
         expires_at:
             type: datetime
+        created_at:
+            type: datetime
+            gedmo:
+              timestampable:
+                 on: create
+        updated_at:
+            type: datetime
+            gedmo:
+              timestampable:
+                 on: update
+    manyToOne:
+      category:
+        targetEntity: Category
+        cascade: {  }
+        mappedBy: null
+        inversedBy: jobs
+        joinColumns:
+          category:
+            referencedColumnName: id
+        orphanRemoval: false
     lifecycleCallbacks: {  }

@@ -1,0 +1,30 @@
+job:
+    pattern:  /
+    defaults: { _controller: "ShaduliJobeetBundle:Job:index" }
+
+job_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ShaduliJobeetBundle:Job:show" }
+
+job_new:
+    pattern:  /new
+    defaults: { _controller: "ShaduliJobeetBundle:Job:new" }
+
+job_create:
+    pattern:  /create
+    defaults: { _controller: "ShaduliJobeetBundle:Job:create" }
+    requirements: { _method: post }
+
+job_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ShaduliJobeetBundle:Job:edit" }
+
+job_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ShaduliJobeetBundle:Job:update" }
+    requirements: { _method: post }
+
+job_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ShaduliJobeetBundle:Job:delete" }
+    requirements: { _method: post }

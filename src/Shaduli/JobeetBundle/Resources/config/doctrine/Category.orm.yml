@@ -1,0 +1,30 @@
+Shaduli\JobeetBundle\Entity\Category:
+    type: entity
+    table: category
+    repositoryClass: Shaduli\JobeetBundle\Entity\CategoryRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        created_at:
+            type: datetime
+            gedmo:
+              timestampable:
+                 on: create
+        updated_at:
+            type: datetime
+            gedmo:
+              timestampable:
+                 on: update
+    oneToMany:
+      jobs:
+        targetEntity: Job
+        cascade: {  }
+        mappedBy: category
+        orphanRemoval: false
+    lifecycleCallbacks: {  }

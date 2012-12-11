@@ -1,0 +1,24 @@
+{% extends "ShaduliJobeetBundle::layout.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/shadulijobeet/css/jobs.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block container %}
+<div id="jobs">
+    <table class="jobs">
+        {% for key, job in jobs %}
+        <tr class="{{ cycle(['odd', 'even'], key) }}" >
+            <td class="location">{{ job.location }}</td>
+            <td class="position">
+                <a href="{{ path('job_show', { 'id': job.id }) }}">
+                    {{ job.position }}
+                </a>
+            </td>
+            <td class="company">{{ job.company }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+
