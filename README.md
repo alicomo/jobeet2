@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Symfony Standard Edition
 ========================
 
@@ -174,3 +175,14 @@ Enjoy!
 [13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
 [14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
 [15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
+=======
+Jobeet 2.0
+============
+
+Jobeet (Practical Symfony) in symfony 2. 
+
+This is project is an attempt to redevelop the most popular symfony learning tutorial on symfony 2. 
+
+
+Thanks to Fabien Potencier , the author of original Practical Symfony (symfony 1.4)
+>>>>>>> 8146899009a8c80881488237e66ed23db5eb8f98
