@@ -1,0 +1,7 @@
+parameters:
+#    shaduli_jobeet.example.class: Shaduli\JobeetBundle\Example
+
+services:
+#    shaduli_jobeet.example:
+#        class: %shaduli_jobeet.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
