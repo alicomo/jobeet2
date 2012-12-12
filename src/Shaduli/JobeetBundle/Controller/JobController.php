@@ -22,10 +22,10 @@ class JobController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $jobs = $em->getRepository('ShaduliJobeetBundle:Job')->findAll();
+        $categories = $em->getRepository('ShaduliJobeetBundle:Category')->getWithJobs();
 
         return $this->render('ShaduliJobeetBundle:Job:index.html.twig', array(
-            'jobs' => $jobs,
+            'categories' => $categories,
         ));
     }
 
@@ -33,7 +33,7 @@ class JobController extends Controller
      * Finds and displays a Job entity.
      *
      */
-    public function showAction($id)
+    public function showAction($company, $location, $id, $position)
     {
         $em = $this->getDoctrine()->getManager();
 

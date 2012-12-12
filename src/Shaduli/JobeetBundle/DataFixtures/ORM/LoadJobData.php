@@ -1,7 +1,9 @@
 <?php
+
 /*
  * @author Muhammadali Shaduli
  */
+
 namespace Shaduli\JobeetBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -9,13 +11,11 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Shaduli\JobeetBundle\Entity\Job;
 
-class LoadJobData extends AbstractFixture implements OrderedFixtureInterface
-{
- 
-    public function load(ObjectManager $manager)
-    {
-        
-        $job =  new Job();
+class LoadJobData extends AbstractFixture implements OrderedFixtureInterface {
+
+    public function load(ObjectManager $manager) {
+
+        $job = new Job();
         $job->setCategory($this->getReference('Design'));
         $job->setType('part-time');
         $job->setCompany('Extreme Sensio');
@@ -33,12 +33,12 @@ class LoadJobData extends AbstractFixture implements OrderedFixtureInterface
         $job->setIsActivated(true);
         $job->setEmail('job@example.com');
         $job->setToken('job_extreme_sensio');
-        $job->setExpiresAt(new \DateTime('2012-12-12'));
+        $job->setExpiresAt(new \DateTime('2012-12-22'));
         $manager->persist($job);
         $manager->flush();
-        
-        
-        $job =  new Job();
+
+
+        $job = new Job();
         $job->setCategory($this->getReference('Programming'));
         $job->setType('full-time');
         $job->setCompany('Sensio Labs');
@@ -56,18 +56,43 @@ class LoadJobData extends AbstractFixture implements OrderedFixtureInterface
         $job->setIsActivated(true);
         $job->setEmail('job@example.com');
         $job->setToken('some');
-        $job->setExpiresAt(new \DateTime('2012-12-12'));
+        $job->setExpiresAt(new \DateTime('2012-12-22'));
         $manager->persist($job);
         $manager->flush();
-        
+
+
+        $categories = array('Design', 'Programming', 'Manager', 'Administrator');
+
+        foreach ($categories as $category) {
+
+            for ($i = 100; $i <= 130; $i++) {
+                $job = new Job();
+                $job->setCategory($this->getReference($category));
+                $job->setType('full-time');
+                $job->setCompany('Company ' . $i);
+                $job->setLogo('sensio-labs.gif');
+                $job->setUrl('http://www.sensiolabs.com/');
+                $job->setPosition('Web Developer');
+                $job->setLocation('Paris, France');
+                $job->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit.");
+                $job->setHowToApply('Send your resume to fabien.potencier [at] sensio.com');
+                $job->setIsPublic(true);
+                $job->setIsActivated(true);
+                $job->setEmail('job@example.com');
+                $job->setToken('job_' . $i);
+                $job->setExpiresAt(new \DateTime('2012-12-22'));
+                $manager->persist($job);
+                $manager->flush();
+            }
+        }
     }
-    
+
     /**
      * {@inheritDoc}
      */
-    public function getOrder()
-    {
+    public function getOrder() {
         return 2; // the order in which fixtures will be loaded
     }
+
 }
 

@@ -1,3 +1,20 @@
 shaduli_jobeet_homepage:
-        resource: "@ShaduliJobeetBundle/Resources/config/routing/job.yml"
-        prefix:   /
+    pattern:  /
+    defaults: { _controller: "ShaduliJobeetBundle:Job:index" }
+
+shaduli_jobeet_job_show_user:
+    pattern:  /job/{company}/{location}/{id}/{position}
+    defaults: { _controller: "ShaduliJobeetBundle:Job:show" }
+    requirements:
+      id: \d+
+      _method: GET
+shaduli_jobeet_job_category:
+    pattern:  /category/{slug}
+    defaults: { _controller: "ShaduliJobeetBundle:Job:show" }
+    requirements:
+      id: \d+
+      _method: GET
+shaduli_jobeet_job_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ShaduliJobeetBundle:Job:edit" }
+    

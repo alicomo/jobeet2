@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class JobRepository extends EntityRepository
 {
+    public function getActiveJobs($limit = null) {
+        $qb = $this->createQueryBuilder('j')
+                   ->select('j')
+                   ->where('j.expires_at > :expiry_date')
+                   ->setParameter('expiry_date', date('Y-m-d H:i:s', time()))
+                   ->orderBy('j.expires_at');
+
+        if (false === is_null($limit))
+            $qb->setMaxResults($limit);
+
+        return $qb->getQuery()
+                  ->getResult();
+    }
 }

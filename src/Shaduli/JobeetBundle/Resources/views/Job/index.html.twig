@@ -6,12 +6,20 @@
 
 {% block container %}
 <div id="jobs">
+    {% for category in categories %}
+        <div class="category_{{ category.slug }}">
+            <div class="category">
+        <div class="feed">
+          <a href="">Feed</a>
+        </div>
+        <h1>{{ category.name }}</h1>
+      </div>
     <table class="jobs">
-        {% for key, job in jobs %}
+        {% for key, job in category.jobs|slice(1, 5) %}
         <tr class="{{ cycle(['odd', 'even'], key) }}" >
             <td class="location">{{ job.location }}</td>
             <td class="position">
-                <a href="{{ path('job_show', { 'id': job.id }) }}">
+                <a href="{{ path('shaduli_jobeet_job_show_user', { 'company': job.company, 'location': job.location,  'id': job.id, 'position': job.position }) }}">
                     {{ job.position }}
                 </a>
             </td>
@@ -19,6 +27,8 @@
         </tr>
         {% endfor %}
     </table>
+           </div>
+   {% endfor %}
 </div>
 {% endblock %}
-
+    
