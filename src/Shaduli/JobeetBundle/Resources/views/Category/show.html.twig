@@ -1,23 +1,24 @@
 {% extends "ShaduliJobeetBundle::layout.html.twig" %}
+{% block title %}
+    {{ parent() }}
+    :: {{ "Jobs in the %s category"|format(category.name) }}
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('bundles/shadulijobeet/css/jobs.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block container %}
-<div id="jobs">
-    {% for category in categories %}
-        <div class="category_{{ category.slug }}">
-            <div class="category">
-        <div class="feed">
-          <a href="">Feed</a>
-        </div>
-        <h1><a href="{{ path('shaduli_jobeet_job_category', { 'slug': category.slug }) }}">
+    <div class="category">
+  <div class="feed">
+    <a href="">Feed</a>
+  </div>
+  <h1><a href="{{ path('shaduli_jobeet_job_category', { 'slug': category.slug }) }}">
                     {{ category.name }}
                 </a></h1>
-      </div>
+</div>
     <table class="jobs">
-        {% for key, job in category.jobs|slice(1, 5) %}
+        {% for key, job in jobs %}
         <tr class="{{ cycle(['odd', 'even'], key) }}" >
             <td class="location">{{ job.location }}</td>
             <td class="position">
@@ -29,8 +30,4 @@
         </tr>
         {% endfor %}
     </table>
-           </div>
-   {% endfor %}
-</div>
 {% endblock %}
-    

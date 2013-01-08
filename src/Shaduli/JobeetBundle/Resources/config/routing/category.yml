@@ -1,0 +1,10 @@
+category:
+    pattern:  /
+    defaults: { _controller: "ShaduliJobeetBundle:Category:index" }
+
+category_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ShaduliJobeetBundle:Category:show" }
+
+
+

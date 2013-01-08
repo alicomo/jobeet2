@@ -10,11 +10,20 @@ shaduli_jobeet_job_show_user:
       _method: GET
 shaduli_jobeet_job_category:
     pattern:  /category/{slug}
-    defaults: { _controller: "ShaduliJobeetBundle:Job:show" }
+    defaults: { _controller: "ShaduliJobeetBundle:Category:show" }
     requirements:
-      id: \d+
       _method: GET
+
 shaduli_jobeet_job_edit:
     pattern:  /{id}/edit
     defaults: { _controller: "ShaduliJobeetBundle:Job:edit" }
+    
+shaduli_jobeet_job_new:
+    pattern:  /new
+    defaults: { _controller: "ShaduliJobeetBundle:Job:new" }
+    
+shaduli_jobeet_job_create:
+    pattern:  /create
+    defaults: { _controller: "ShaduliJobeetBundle:Job:create" }
+    requirements: { _method: post }
     

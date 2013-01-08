@@ -13,6 +13,12 @@ use Doctrine\ORM\EntityRepository;
 class CategoryRepository extends EntityRepository {
 
     public function getWithJobs($max = null) {
+         return $this->getActiveJobsQuery($max)->getQuery()
+                  ->getResult();
+    }
+    
+    
+    public function getActiveJobsQuery($max = null) {
         $qb = $this->createQueryBuilder('c')
                    ->select('c,j')
                    ->leftJoin('c.jobs', 'j')
@@ -23,8 +29,15 @@ class CategoryRepository extends EntityRepository {
         if (false === is_null($max))
             $qb->setMaxResults($max);
         
-        return $qb->getQuery()
-                  ->getResult();
+       return $qb;
+        
+    }
+    
+    public function getActiveJobs($max = null) 
+    {
+        $qb = $this->getActiveJobsQuery($max);
+        
+        return $qb->getQuery()->getResult();
     }
 
 }

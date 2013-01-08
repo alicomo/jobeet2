@@ -35,15 +35,19 @@ Shaduli\JobeetBundle\Entity\Job:
         token:
             type: string
             length: 255
+            nullable: true
         is_public:
             type: boolean
+            nullable: true
         is_activated:
             type: boolean
+            nullable: true
         email:
             type: string
             length: 255
         expires_at:
             type: datetime
+            nullable: true
         created_at:
             type: datetime
             gedmo:

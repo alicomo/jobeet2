@@ -11,9 +11,11 @@ Shaduli\JobeetBundle\Entity\Category:
         name:
             type: string
             length: 255
+            unique: true
         slug:
           type: string
           length: 255
+          unique: true
           gedmo:
             slug:
               separator: _

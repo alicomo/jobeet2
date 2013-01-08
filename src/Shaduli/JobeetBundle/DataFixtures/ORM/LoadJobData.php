@@ -33,7 +33,7 @@ class LoadJobData extends AbstractFixture implements OrderedFixtureInterface {
         $job->setIsActivated(true);
         $job->setEmail('job@example.com');
         $job->setToken('job_extreme_sensio');
-        $job->setExpiresAt(new \DateTime('2012-12-22'));
+        $job->setExpiresAt(new \DateTime('2013-01-22'));
         $manager->persist($job);
         $manager->flush();
 
@@ -56,7 +56,7 @@ class LoadJobData extends AbstractFixture implements OrderedFixtureInterface {
         $job->setIsActivated(true);
         $job->setEmail('job@example.com');
         $job->setToken('some');
-        $job->setExpiresAt(new \DateTime('2012-12-22'));
+        $job->setExpiresAt(new \DateTime('2013-12-22'));
         $manager->persist($job);
         $manager->flush();
 
@@ -80,7 +80,7 @@ class LoadJobData extends AbstractFixture implements OrderedFixtureInterface {
                 $job->setIsActivated(true);
                 $job->setEmail('job@example.com');
                 $job->setToken('job_' . $i);
-                $job->setExpiresAt(new \DateTime('2012-12-22'));
+                $job->setExpiresAt(new \DateTime('2013-12-22'));
                 $manager->persist($job);
                 $manager->flush();
             }

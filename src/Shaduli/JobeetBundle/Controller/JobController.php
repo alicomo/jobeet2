@@ -28,7 +28,6 @@ class JobController extends Controller
             'categories' => $categories,
         ));
     }
-
     /**
      * Finds and displays a Job entity.
      *
