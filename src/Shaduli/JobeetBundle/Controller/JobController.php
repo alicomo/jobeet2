@@ -79,7 +79,7 @@ class JobController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('job_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('shaduli_jobeet_job_show_user', array('id' => $entity->getId())));
         }
 
         return $this->render('ShaduliJobeetBundle:Job:new.html.twig', array(
@@ -96,17 +96,17 @@ class JobController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ShaduliJobeetBundle:Job')->find($id);
+        $job = $em->getRepository('ShaduliJobeetBundle:Job')->find($id);
 
-        if (!$entity) {
+        if (!$job) {
             throw $this->createNotFoundException('Unable to find Job entity.');
         }
 
-        $editForm = $this->createForm(new JobType(), $entity);
+        $editForm = $this->createForm(new JobType(), $job);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ShaduliJobeetBundle:Job:edit.html.twig', array(
-            'entity'      => $entity,
+            'job'      => $job,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

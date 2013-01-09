@@ -21,7 +21,7 @@ class JobType extends AbstractType {
                     'choices' => $this->getTypes(), 
                     'expanded' => true ))
                 ->add('company')
-                ->add('logo', 'file', array('label' => 'Company logo'))
+                ->add('logo', 'file', array('label' => 'Company logo', 'data_class' => null))
                 ->add('url')
                 ->add('position')
                 ->add('location')

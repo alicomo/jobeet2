@@ -1,22 +1,44 @@
+{% extends "ShaduliJobeetBundle::layout.html.twig" %}
+{% block title %}
+    {{ parent() }}
+:: {{ "Job edit" }}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+<link href="{{ asset('bundles/shadulijobeet/css/job.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block container %}
 <h1>Job edit</h1>
+<form action="{{ path('shaduli_jobeet_job_update', { 'id': job.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <table id="job_form">
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Edit" />
+                </td>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% form_theme edit_form 'ShaduliJobeetBundle:Form:form_table_layout.html.twig' %}
+        {{ form_widget(edit_form) }}
 
-<form action="{{ path('job_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
-    <p>
-        <button type="submit">Edit</button>
-    </p>
+
+        </tbody>
+    </table>
+
 </form>
-
 <ul class="record_actions">
     <li>
-        <a href="{{ path('job') }}">
+        <a href="{{ path('shaduli_jobeet_job_show_user', { 'id': job.id }) }}">
             Back to the list
         </a>
     </li>
     <li>
-        <form action="{{ path('job_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('shaduli_jobeet_job_delete', { 'id': job.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>
     </li>
 </ul>
+{% endblock %}
+

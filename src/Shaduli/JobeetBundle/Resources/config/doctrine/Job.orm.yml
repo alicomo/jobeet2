@@ -68,4 +68,7 @@ Shaduli\JobeetBundle\Entity\Job:
           category:
             referencedColumnName: id
         orphanRemoval: false
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks: 
+        prePersist: [ setExpiresAtValue, setTokenValue, upload]
+        preUpdate: [ upload ]
+        postRemove: [ removeFile ]
