@@ -9,7 +9,7 @@
 {% endblock %}
 {% block container %}
 <h1>Job edit</h1>
-<form action="{{ path('shaduli_jobeet_job_update', { 'id': job.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+<form novalidate action="{{ path('shaduli_jobeet_job_update', { 'id': job.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     <table id="job_form">
         <tfoot>
             <tr>

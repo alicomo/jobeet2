@@ -1,0 +1,35 @@
+Shaduli\JobeetBundle\Entity\Category:
+    properties:
+        name:
+            - NotBlank:
+                'message': 'You must enter your category name'
+            
+Shaduli\JobeetBundle\Entity\Job:
+    properties:
+        type:
+            - NotNull:
+                'message': 'You must select one'
+        company:
+            - NotBlank: 
+                'message': 'You must enter your comapany name'
+        position:
+            - NotBlank:  
+                'message': 'You must enter the position'
+        location:
+            - NotBlank:  
+                'message': 'You must enter the location'
+        description:
+            - NotBlank:  
+                'message': 'You must enter the description'
+            - MinLength: 50
+            - MaxLength: 2000
+        how_to_apply:
+            - NotBlank:  ~
+            - MinLength: 30
+            - MaxLength: 1000
+        email:
+            - NotBlank:  
+                'message': 'You must enter the email'
+            - Email:
+                'message': 'You must enter a valid email'
+          

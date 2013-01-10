@@ -2,10 +2,11 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: "@ShaduliJobeetBundle/Resources/config/config.yml" }
+    - { resource: "@ShaduliJobeetBundle/Resources/config/admin.yml" }
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -66,7 +67,18 @@ stof_doctrine_extensions:
         default: 
           timestampable: true
           sluggable: true
-          
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.action:
+        sonata.block.service.rss:
+
+    
 knp_paginator:
     page_range: 10                      # default page range used in pagination control
     default_options:

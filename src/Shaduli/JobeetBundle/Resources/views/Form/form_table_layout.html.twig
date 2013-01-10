@@ -20,11 +20,7 @@
 {% block form_errors %}
 {% spaceless %}
     {% if errors|length > 0 %}
-    <tr>
-        <td colspan="2">
             {{ block('field_errors') }}
-        </td>
-    </tr>
     {% endif %}
 {% endspaceless %}
 {% endblock form_errors %}

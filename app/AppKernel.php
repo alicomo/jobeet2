@@ -21,6 +21,12 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\CacheBundle\SonataCacheBundle(),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Shaduli\JobeetBundle\ShaduliJobeetBundle(),
         );

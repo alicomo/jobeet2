@@ -27,7 +27,7 @@ class JobType extends AbstractType {
                 ->add('location')
                 ->add('description', 'textarea')
                 ->add('how_to_apply', 'textarea', array('label' => 'How to apply?'))
-                ->add('is_public', 'text', array('label' => 'Public?', 
+                ->add('is_public', 'checkbox', array('label' => 'Public?', 
                     'attr' => array('help' => 'Whether the job can also be published on affiliate websites or not.')))
                 ->add('email')
                 
