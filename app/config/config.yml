@@ -78,6 +78,11 @@ sonata_block:
         sonata.block.service.action:
         sonata.block.service.rss:
 
+#fos user bundle configurartion
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Shaduli\UserBundle\Entity\User
     
 knp_paginator:
     page_range: 10                      # default page range used in pagination control

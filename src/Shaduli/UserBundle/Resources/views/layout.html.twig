@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8" />
+        <title>{% block title %}Administration{% endblock %} - shaduli.com</title>
+        {% block stylesheets %}
+              <link href="{{ asset('/bundles/shaduliuser/css/admin.css') }}" type="text/css" rel="stylesheet" />
+              <link href="{{ asset('/bundles/shaduliuser/css/colors-fresh.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+    </head>
+    <body class="login">
+	<div id="login">
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+	</div>
+	<div class="clear"></div>
+    </body>
+</html>

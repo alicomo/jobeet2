@@ -2,6 +2,12 @@ shaduli_jobeet_homepage:
     pattern:  /
     defaults: { _controller: "ShaduliJobeetBundle:Job:index" }
 
+shaduli_jobeet_job:
+    pattern:  /job.{_format}
+    defaults: { _controller: "ShaduliJobeetBundle:Job:index" }
+    requirements:
+      _format:  html|atom
+
 shaduli_jobeet_job_show_user:
     pattern:  /job/{id}/{company}/{location}/{position}
     defaults: { _controller: "ShaduliJobeetBundle:Job:show", company: null, location: null, position: null }
@@ -15,7 +21,7 @@ shaduli_jobeet_job_category:
       _method: GET
 
 shaduli_jobeet_job_edit:
-    pattern:  /{id}/edit
+    pattern:  /job/{id}/edit
     defaults: { _controller: "ShaduliJobeetBundle:Job:edit" }
     requirements:
       { id: \d+ }
@@ -25,16 +31,16 @@ shaduli_jobeet_job_new:
     defaults: { _controller: "ShaduliJobeetBundle:Job:new" }
     
 shaduli_jobeet_job_create:
-    pattern:  /create
+    pattern:  /job/create
     defaults: { _controller: "ShaduliJobeetBundle:Job:create" }
     requirements: { _method: post }
     
 shaduli_jobeet_job_update:
-    pattern:  /{id}/update
+    pattern:  /job/{id}/update
     defaults: { _controller: "ShaduliJobeetBundle:Job:update" }
     requirements: { _method: post }
 
 shaduli_jobeet_job_delete:
-    pattern:  /{id}/delete
+    pattern:  /job/{id}/delete
     defaults: { _controller: "ShaduliJobeetBundle:Job:delete" }
     requirements: { _method: post }

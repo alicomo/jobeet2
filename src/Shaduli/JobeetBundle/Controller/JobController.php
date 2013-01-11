@@ -23,9 +23,11 @@ class JobController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('ShaduliJobeetBundle:Category')->getWithJobs();
-
-        return $this->render('ShaduliJobeetBundle:Job:index.html.twig', array(
+        $format = $this->getRequest()->getRequestFormat();
+        return $this->render('ShaduliJobeetBundle:Job:index.'.$format.'.twig', array(
             'categories' => $categories,
+            'lastUpdated' => !is_null($em->getRepository('ShaduliJobeetBundle:Job')->getLatestPost())?$em->getRepository('ShaduliJobeetBundle:Job')->getLatestPost()->getCreatedAt()->format(DATE_ATOM):null,
+            'feedId' => sha1($this->get('router')->generate('shaduli_jobeet_homepage', array('_format'=> 'atom'), true)),
         ));
     }
     /**
@@ -46,7 +48,8 @@ class JobController extends Controller
 
         return $this->render('ShaduliJobeetBundle:Job:show.html.twig', array(
             'job'      => $job,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),
+            ));
     }
 
     /**
