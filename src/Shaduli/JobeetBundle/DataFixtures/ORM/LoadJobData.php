@@ -19,7 +19,7 @@ class LoadJobData extends AbstractFixture implements OrderedFixtureInterface {
         $job->setCategory($this->getReference('Design'));
         $job->setType('part-time');
         $job->setCompany('Extreme Sensio');
-        $job->setLogo('extreme-sensio.gif');
+        $job->setLogo(null);
         $job->setUrl('http://www.extreme-sensio.com/');
         $job->setPosition('Web Designer');
         $job->setLocation('Paris, France');
@@ -42,7 +42,7 @@ class LoadJobData extends AbstractFixture implements OrderedFixtureInterface {
         $job->setCategory($this->getReference('Programming'));
         $job->setType('full-time');
         $job->setCompany('Sensio Labs');
-        $job->setLogo('sensio-labs.gif');
+        $job->setLogo(null);
         $job->setUrl('http://www.sensiolabs.com/');
         $job->setPosition('Web Developer');
         $job->setLocation('Paris, France');
@@ -70,9 +70,9 @@ class LoadJobData extends AbstractFixture implements OrderedFixtureInterface {
                 $job->setCategory($this->getReference($category));
                 $job->setType('full-time');
                 $job->setCompany('Company ' . $i);
-                $job->setLogo('sensio-labs.gif');
+                $job->setLogo(null);
                 $job->setUrl('http://www.sensiolabs.com/');
-                $job->setPosition('Web Developer');
+                $job->setPosition($category.$i);
                 $job->setLocation('Paris, France');
                 $job->setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit.");
                 $job->setHowToApply('Send your resume to fabien.potencier [at] sensio.com');

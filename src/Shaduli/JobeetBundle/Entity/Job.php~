@@ -497,13 +497,15 @@ class Job {
         if (null === $this->logo) {
             return;
         }
-
+        
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->logo->move($this->getUploadRootDir(), $this->getFileName());
         
-        $this->logo = $this->getFileName();
+        $filename = $this->getFileName();
+        $this->logo->move($this->getUploadRootDir(), $filename);
+        
+        $this->logo = $filename;
         
         
     }
