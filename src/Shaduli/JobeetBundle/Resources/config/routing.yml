@@ -4,7 +4,7 @@ shaduli_jobeet_homepage:
 
 shaduli_jobeet_job:
     pattern:  /job.{_format}
-    defaults: { _controller: "ShaduliJobeetBundle:Job:index" }
+    defaults: { _controller: "ShaduliJobeetBundle:Job:index", _format: html }
     requirements:
       _format:  html|atom
 
@@ -15,10 +15,11 @@ shaduli_jobeet_job_show_user:
       id: \d+
       _method: GET
 shaduli_jobeet_job_category:
-    pattern:  /category/{slug}
-    defaults: { _controller: "ShaduliJobeetBundle:Category:show" }
+    pattern:  /category/{slug}.{_format}
+    defaults: { _controller: "ShaduliJobeetBundle:Category:show", _format: html }
     requirements:
       _method: GET
+      _format:  html|atom
 
 shaduli_jobeet_job_edit:
     pattern:  /job/{id}/edit

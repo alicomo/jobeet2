@@ -44,10 +44,12 @@ class CategoryController extends Controller
         else {
             $jobs = $em->getRepository('ShaduliJobeetBundle:Job')->getActiveJobs($category);
         }
-
-        return $this->render('ShaduliJobeetBundle:Category:show.html.twig', array(
+        
+        $format = $this->getRequest()->getRequestFormat();
+        return $this->render('ShaduliJobeetBundle:Category:show.'.$format.'.twig', array(
             'category'      => $category,
-            'jobs' => $jobs
+            'jobs' => $jobs,
+            'feedId' => sha1($this->get('router')->generate('shaduli_jobeet_job_category', array('slug' =>  $category->getSlug(), '_format' => 'atom'), true))
         ));
     }
 
