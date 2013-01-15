@@ -13,7 +13,11 @@ services:
     arguments: [ null, Shaduli\JobeetBundle\Entity\Job, SonataAdminBundle:CRUD ]
     calls:
       - [ setTranslationDomain, [ ShaduliJobeetBundle ] ]
-      
+  sonata.admin.user:
+    class: Shaduli\JobeetBundle\Admin\UserAdmin
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: "Quick Links", label: Admins }
+    arguments: [null, Shaduli\UserBundle\Entity\User, SonataAdminBundle:CRUD]
         
          
 
